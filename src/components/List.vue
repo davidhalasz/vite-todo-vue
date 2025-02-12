@@ -1,18 +1,17 @@
 <template>
     <div>
-        <h1 class="text-4xl">TODO List</h1>
+        <h1 class="text-4xl my-10">TODO List</h1>
         <ul>
-            <li class="flex items-center gap-4" v-for="(todo, index) in todoStore.todos" :key="index">
-                <input type="checkbox" @change="toggleTodo(index)" />
-                <p>{{ todo.text }}</p>
-                <button @click="removeTodo(index)" >remove</button>
+            <li class="flex items-center gap-4 mb-4" v-for="(todo, index) in todoStore.todos" :key="index">
+                <input class="flex-none" type="checkbox" @change="() => toggleTodo(index)" />
+                <p class="flex-grow">{{ todo.text }}</p>
+                <button class="flex-none" @click="removeTodo(index)">remove</button>
             </li>
         </ul>
     </div>
 </template>
 
 <script>
-
 export default {
     props: ['todoStore', 'toggleTodo', 'removeTodo'],
 }

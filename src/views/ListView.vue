@@ -7,7 +7,7 @@
     import List from '../components/List.vue';
     import Input from '../components/Input.vue';
     import { useTodoStore } from '../stores/todo';
-    import { ref } from 'vue';
+    // import { ref } from 'vue';
     
     export default {
         components: {
@@ -16,13 +16,11 @@
         },
         setup() {
             const todoStore = useTodoStore();
-            const textInput = ref('');
+            // const textInput = ref('');
 
-            const addNewTodo = () => {
-                if (textInput.value.trim()) {
-                    todoStore.addTodo(textInput.value.trim());
-                    textInput.value = '';
-                }
+            const addNewTodo = (text) => {
+                console.log(text);
+                todoStore.addTodo(text);
             };
 
             const removeTodo = (index) => {
@@ -33,7 +31,7 @@
                 todoStore.toggleTodo(index);
             };
 
-            return { addNewTodo, removeTodo, toggleTodo, todoStore, textInput };
+            return { addNewTodo, removeTodo, toggleTodo, todoStore };
         }
     }
 </script>

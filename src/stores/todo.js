@@ -16,6 +16,7 @@ export const useTodoStore = defineStore('todoStore', {
         },
         toggleTodo(index) {
             this.todos[index].done = !this.todos[index].done;
+            console.log(this.todos[index]);
             this.saveTodos();
         },
         saveTodos() {
