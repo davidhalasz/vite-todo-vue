@@ -11,8 +11,8 @@
     </div>
 </template>
 
-<script>
-export default {
-    props: ['todoStore', 'toggleTodo', 'removeTodo'],
-}
+<script setup>
+
+const props = defineProps(['todoStore', 'toggleTodo', 'removeTodo']);
+
 </script>

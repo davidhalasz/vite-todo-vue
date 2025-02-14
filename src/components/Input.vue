@@ -5,23 +5,16 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import {ref} from 'vue';
 
-export default {    
-    props: ['addNewTodo'],
-    setup(props) {
-        const textInput = ref('');
+const props = defineProps(['addNewTodo']);
+const textInput = ref('');
 
-        const handleAddTodo = () => {
-            console.log(textInput.value);
-            if (textInput.value.trim()) {
-                props.addNewTodo(textInput.value.trim());
-                textInput.value = '';
-            }
-        };
-
-        return {textInput, handleAddTodo};
-   }
+const handleAddTodo = () => {
+    if(textInput.value.trim()) {
+        props.addNewTodo(textInput.value.trim());
+        textInput.value = '';
+    }
 }
 </script>
